@@ -1,9 +1,10 @@
 import { SafeAreaView, StyleSheet, Text, View,Dimensions, TouchableOpacity, StatusBar } from 'react-native'
 import React, { useState} from 'react'
 import FastImage from 'react-native-fast-image';
-import { container, API_HELPER } from '../constant';
+import { container, inputStyle, API_HELPER } from '../constant';
 import { TextInput } from 'react-native-gesture-handler';
-
+import { FloatingLabelInput } from 'react-native-floating-label-input';
+import LinearGradient from 'react-native-linear-gradient';
 
 export default function Login({navigation}) {
 
@@ -49,21 +50,49 @@ export default function Login({navigation}) {
 
             {/* Input Section */}
             <View style={styles.inputSection}>
-                <View style={styles.inputBox}>
+                <View style={styles.inputBox}> 
                     <TextInput 
                         placeholder='Email'
                         defaultValue={email}
                         onChangeText={(text) => setEmail(text)}
                     />
                 </View>
-                <View style={styles.inputBox}>
-                <TextInput 
-                        placeholder='password'
+                <View style={styles.inputBox}> 
+                    <TextInput 
+                        placeholder='Password'
                         defaultValue={password}
                         onChangeText={(text) => setPassword(text)}
-                        secureTextEntry = {false}
                     />
                 </View>
+
+                {/* <View style={styles.inputBox}>
+                    <LinearGradient
+                        colors={['#FE650D', '#FFC11F']} // Replace with your desired gradient colors
+                        start={{ x: 0, y: 0 }}
+                        end={{ x: 1, y: 1 }}
+                        style={{ padding: 1.3, borderRadius:10 }}
+                    >
+                        <FloatingLabelInput
+                            label='Email'
+                            value={email}
+                            onChangeText={(text) => setEmail(text)}
+                            containerStyles={inputStyle.inputFieldContainerStyle}
+                            labelStyles={inputStyle.inputLabelStyle}
+                            customLabelStyles={inputStyle.inputCustomLabel}
+                            inputStyles={inputStyle.inputDataStyle}
+                        />
+                    </LinearGradient>
+                    
+                    <FloatingLabelInput
+                        label='Password'
+                        value={password}
+                        onChangeText={(text) => setPassword(text)}
+                        containerStyles={inputStyle.inputFieldContainerStyle}
+                        labelStyles={inputStyle.inputLabelStyle}
+                        customLabelStyles={inputStyle.inputCustomLabel}
+                        inputStyles={inputStyle.inputDataStyle}
+                    />
+                </View> */}
 
                 <TouchableOpacity
                     style={{
@@ -82,8 +111,8 @@ export default function Login({navigation}) {
             <View style={styles.loginSection}>
                 {/* Login Button */}
                 <TouchableOpacity
-                    //onPress={() => navigation.navigate('Dashboard')}
-                    onPress={login}
+                    onPress={() => navigation.navigate('Dashboard')}
+                    //onPress={login}
                     style={styles.loginButton}
                 >
                     <View >

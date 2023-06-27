@@ -1,9 +1,38 @@
-const { Dimensions } = require("react-native");
+const { Dimensions, StyleSheet, Platform } = require("react-native");
 
 export const container = {
     width: Dimensions.get("window").width,
     height: Dimensions.get("window").height
 }
+
+
+export const inputStyle = StyleSheet.create({
+    inputFieldContainerStyle:{
+        borderWidth: 0,
+        paddingHorizontal: 10,
+        paddingVertical: Platform.OS === 'ios'? 15:5,
+        //backgroundColor: '#fff',
+        //borderColor: '#FF8606',
+        backgroundColor: 'white',
+        borderRadius: 10,
+    },
+    inputLabelStyle: {
+        //backgroundColor: '#fff',
+        paddingHorizontal: 5,
+        paddingTop: Platform.OS === 'ios'? 10:8,
+        paddingBottom: Platform.OS === 'ios'? 3:5,
+        
+    },
+    inputDataStyle:{
+        color: 'blue',
+        paddingHorizontal: 5,
+        paddingTop:8,
+    },
+    inputCustomLabel: {
+        //colorFocused: 'red',
+        fontSizeFocused: 12,
+    }
+})
 
 
 export const API_HELPER = async (route_name, data, method="POST") => {
@@ -40,7 +69,7 @@ export const API_HELPER = async (route_name, data, method="POST") => {
             return_api.status_code  =   result.status_code
             return_api.status       =   result.status
             return_api.message      =   result.message
-            return_api.data         =   result.data
+            return_api.data         =   result.body
         })
         .catch(error => console.log('error', error));
         
