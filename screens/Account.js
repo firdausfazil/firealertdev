@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet, Text, View } from 'react-native'
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { container } from '../constant'
@@ -6,7 +6,7 @@ import FastImage from 'react-native-fast-image'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 
 
-export default function Account() {
+export default function Account({navigation}) {
   return (
     <SafeAreaView style={styles.container} edges={['right', 'left', 'top']}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -41,86 +41,89 @@ export default function Account() {
             <Text style={styles.accMenuHeader}>Account</Text>
 
             {/* Profile */}
-            <View style={styles.accMenu}>
+            <TouchableOpacity 
+              style={styles.accMenu}
+              onPress={() => navigation.navigate('Profile')}
+            >
               <Text style={{marginRight:15}}>
                 <AntDesign name='user' style={{color:'grey', fontSize:30}} />
               </Text>
-              <Text style={{color:'grey', fontSize:20, width:'79%'}}>Profile </Text>
+              <Text style={{color:'grey', fontSize:18, width:'79%'}}>Profile </Text>
               <Text>
                 <AntDesign name='right' style={{color:'grey', fontSize:20}} />
               </Text>
-            </View>
+            </TouchableOpacity>
 
             {/* Password */}
-            <View style={styles.accMenu}>
+            <TouchableOpacity style={styles.accMenu}>
               <Text style={{marginRight:15}}>
                 <AntDesign name='lock1' style={{color:'grey', fontSize:30}} />
               </Text>
-              <Text style={{color:'grey', fontSize:20, width:'79%'}}>Password </Text>
+              <Text style={{color:'grey', fontSize:18, width:'79%'}}>Password </Text>
               <Text>
                 <AntDesign name='right' style={{color:'grey', fontSize:20}} />
               </Text>
-            </View>
+              </TouchableOpacity>
 
             {/* Address */}
-            <View style={styles.accMenu}>
+            <TouchableOpacity style={styles.accMenu}>
               <Text style={{marginRight:15}}>
                 <AntDesign name='enviromento' style={{color:'grey', fontSize:30}} />
               </Text>
-              <Text style={{color:'grey', fontSize:20, width:'79%'}}>Address </Text>
+              <Text style={{color:'grey', fontSize:18, width:'79%'}}>Address </Text>
               <Text>
                 <AntDesign name='right' style={{color:'grey', fontSize:20}} />
               </Text>
-            </View>
+            </TouchableOpacity>
 
             {/* Notification */}
-            <View style={styles.accMenu}>
+            <TouchableOpacity style={styles.accMenu}>
               <Text style={{marginRight:15}}>
                 <AntDesign name='bells' style={{color:'grey', fontSize:30}} />
               </Text>
-              <Text style={{color:'grey', fontSize:20, width:'79%'}}>Notification </Text>
+              <Text style={{color:'grey', fontSize:18, width:'79%'}}>Notification </Text>
               <Text>
                 <AntDesign name='right' style={{color:'grey', fontSize:20}} />
               </Text>
-            </View>
+            </TouchableOpacity>
           </View>
 
 
           <View style={styles.accSubMenuSection}>
             <Text style={styles.accMenuHeader}>More</Text>
 
-            {/* Profile */}
-            <View style={styles.accMenu}>
+            {/* Term & Condition */}
+            <TouchableOpacity style={styles.accMenu}>
               <Text style={{marginRight:15}}>
                 <AntDesign name='staro' style={{color:'grey', fontSize:30}} />
               </Text>
-              <Text style={{color:'grey', fontSize:20, width:'79%'}}>Term & Condition </Text>
+              <Text style={{color:'grey', fontSize:18, width:'79%'}}>Term & Condition </Text>
               <Text>
                 <AntDesign name='right' style={{color:'grey', fontSize:20}} />
               </Text>
-            </View>
+            </TouchableOpacity>
 
-            {/* Password */}
-            <View style={styles.accMenu}>
+            {/* About */}
+            <TouchableOpacity style={styles.accMenu}>
               <Text style={{marginRight:15}}>
                 <AntDesign name='infocirlceo' style={{color:'grey', fontSize:30}} />
               </Text>
-              <Text style={{color:'grey', fontSize:20, width:'79%'}}>About </Text>
+              <Text style={{color:'grey', fontSize:18, width:'79%'}}>About </Text>
               <Text>
                 <AntDesign name='right' style={{color:'grey', fontSize:20}} />
               </Text>
-            </View>
+            </TouchableOpacity>
 
-            {/* Address */}
-            <View style={styles.accMenu}>
+            {/* Help */}
+            <TouchableOpacity style={styles.accMenu}>
               <Text style={{marginRight:15}}>
                 <AntDesign name='questioncircleo' style={{color:'grey', fontSize:30}} />
               </Text>
-              <Text style={{color:'grey', fontSize:20, width:'79%'}}>Help </Text>
+              <Text style={{color:'grey', fontSize:18, width:'79%'}}>Help </Text>
               <Text>
                 <AntDesign name='right' style={{color:'grey', fontSize:20}} />
               </Text>
-            </View>
+            </TouchableOpacity>
           </View>
         </View>
 

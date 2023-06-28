@@ -16,30 +16,32 @@ import Register from './screens/Register';
 import Dashboard from './screens/Dashboard';
 import Account from './screens/Account';
 import Activity from './screens/Activity';
+import Profile from './screens/Profile';
 
 
 const Stack = createStackNavigator();
 const BottomStack = createBottomTabNavigator();
 
+
+
+const BottomTabMenu = () => {
+  return (
+      <BottomStack.Navigator
+          screenOptions={({route}) => ({
+              headerShown:false
+              
+          })}
+      >
+          <BottomStack.Screen name='BTHome' component={Dashboard} />
+          <BottomStack.Screen name='BTActivity' component={Activity} />
+          <BottomStack.Screen name='BTAccount' component={Account} />
+      </BottomStack.Navigator>
+  );
+}
+
+
+
 const App = () => {
-
-    const BottomTabMenu = () => {
-        return (
-            <BottomStack.Navigator
-                screenOptions={() => ({
-                    headerShown:false
-                    
-                })}
-            >
-                <BottomStack.Screen name='BTHome' component={Dashboard} />
-                <BottomStack.Screen name='BTActivity' component={Activity} />
-                <BottomStack.Screen name='BTAccount' component={Account} />
-            </BottomStack.Navigator>
-        );
-    }
-
-  
-  
 
   return (
 
@@ -54,6 +56,7 @@ const App = () => {
         <Stack.Screen name='Login' component={Login} />
         <Stack.Screen name='Register' component={Register} />
         <Stack.Screen name='Dashboard' component={BottomTabMenu} />
+        <Stack.Screen name="Profile" component={Profile} />
       </Stack.Navigator>
     </NavigationContainer>
     

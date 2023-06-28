@@ -4,6 +4,8 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>FontAwesome5_Solid.ttf</string>
+		<string>FontAwesome.ttf</string>
 		<string>Zocial.ttf</string>
 		<string>AntDesign.ttf</string>
 	</array>

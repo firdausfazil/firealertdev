@@ -1,6 +1,8 @@
-const { Dimensions, StyleSheet, Platform } = require("react-native");
+const { Dimensions, StyleSheet, Platform, NativeModules } = require("react-native");
+const {StatusBarManager} = NativeModules;
 
 export const container = {
+    statusBarHeight: StatusBarManager.HEIGHT,
     width: Dimensions.get("window").width,
     height: Dimensions.get("window").height
 }
